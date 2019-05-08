@@ -1,5 +1,6 @@
-class GithubFacade
+# frozen_string_literal: true
 
+class GithubFacade
   def initialize(user)
     @token = user[:github_token]
   end

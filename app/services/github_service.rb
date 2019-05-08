@@ -1,5 +1,6 @@
-class GithubService
+# frozen_string_literal: true
 
+class GithubService
   def initialize(token)
     @token = token
   end
