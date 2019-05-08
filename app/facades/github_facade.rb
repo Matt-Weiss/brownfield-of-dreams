@@ -6,7 +6,7 @@ class GithubFacade
   end
 
   def repos(limit = 5)
-    api_data(:repos)[0..(limit-1)].map do |repo|
+    api_data(:repos)[0..(limit - 1)].map do |repo|
       GithubRepo.new(repo)
     end
   end
@@ -28,11 +28,11 @@ class GithubFacade
   def api_data(endpoint)
     case endpoint
     when :repos
-      @_repo_data ||= service.get_repos
+      @_repo_data ||= service.repos
     when :followers
-      @_follower_data ||= service.get_followers
+      @_follower_data ||= service.followers
     when :following
-      @_following_data ||= service.get_following
+      @_following_data ||= service.following
     end
   end
 
