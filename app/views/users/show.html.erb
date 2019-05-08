@@ -27,5 +27,13 @@
         <% end %>
       </ul>
     </section>
+    <section class="following">
+      <h2>You're Following</h2>
+      <ul>
+        <% github_facade.following.each do |user| %>
+        <li><%= link_to user.handle, user.profile_url %></li>
+        <% end %>
+      </ul>
+    </section>
   <% end %>
 </section>
