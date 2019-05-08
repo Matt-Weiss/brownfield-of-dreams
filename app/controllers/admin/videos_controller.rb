@@ -12,8 +12,8 @@ class Admin::VideosController < Admin::BaseController
 
   def create
     begin
-      tutorial = Tutorial.find(params[:tutorial_id])
-      thumbnail = YouTube::Video.by_id(new_video_params[:video_id]).thumbnail
+      tutorial = find_tutorial
+      thumbnail = find_thumbnail
       video = tutorial.videos.new(new_video_params.merge(thumbnail: thumbnail))
 
       video.save
@@ -36,5 +36,13 @@ class Admin::VideosController < Admin::BaseController
 
   def new_video_params
     params.require(:video).permit(:title, :description, :video_id, :thumbnail)
+  end
+
+  def find_tutorial
+    Tutorial.find(params[:tutorial_id])
+  end
+
+  def find_thumbnail
+    YouTube::Video.by_id(new_video_params[:video_id]).thumbnail
   end
 end
