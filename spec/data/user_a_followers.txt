@@ -1,0 +1,87 @@
+HTTP/1.1 200 OK
+Server: GitHub.com
+Date: Wed, 08 May 2019 15:21:32 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 3096
+Status: 200 OK
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4998
+X-RateLimit-Reset: 1557332438
+Cache-Control: private, max-age=60, s-maxage=60
+Vary: Accept, Authorization, Cookie, X-GitHub-OTP
+ETag: "23d2d680a4271eabacb9ddeb0bfcf194"
+X-OAuth-Scopes: public_repo, user:follow
+X-Accepted-OAuth-Scopes: 
+X-GitHub-Media-Type: github.v3; format=json
+Access-Control-Expose-Headers: ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type
+Access-Control-Allow-Origin: *
+Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
+X-Frame-Options: deny
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Referrer-Policy: origin-when-cross-origin, strict-origin-when-cross-origin
+Content-Security-Policy: default-src 'none'
+X-GitHub-Request-Id: F4CD:29FA:1BD7357:3C9F04E:5CD2F3FB
+
+[
+  {
+    "login": "n-flint",
+    "id": 34421236,
+    "node_id": "MDQ6VXNlcjM0NDIxMjM2",
+    "avatar_url": "https://avatars3.githubusercontent.com/u/34421236?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/n-flint",
+    "html_url": "https://github.com/n-flint",
+    "followers_url": "https://api.github.com/users/n-flint/followers",
+    "following_url": "https://api.github.com/users/n-flint/following{/other_user}",
+    "gists_url": "https://api.github.com/users/n-flint/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/n-flint/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/n-flint/subscriptions",
+    "organizations_url": "https://api.github.com/users/n-flint/orgs",
+    "repos_url": "https://api.github.com/users/n-flint/repos",
+    "events_url": "https://api.github.com/users/n-flint/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/n-flint/received_events",
+    "type": "User",
+    "site_admin": false
+  },
+  {
+    "login": "renecasco",
+    "id": 34440390,
+    "node_id": "MDQ6VXNlcjM0NDQwMzkw",
+    "avatar_url": "https://avatars1.githubusercontent.com/u/34440390?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/renecasco",
+    "html_url": "https://github.com/renecasco",
+    "followers_url": "https://api.github.com/users/renecasco/followers",
+    "following_url": "https://api.github.com/users/renecasco/following{/other_user}",
+    "gists_url": "https://api.github.com/users/renecasco/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/renecasco/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/renecasco/subscriptions",
+    "organizations_url": "https://api.github.com/users/renecasco/orgs",
+    "repos_url": "https://api.github.com/users/renecasco/repos",
+    "events_url": "https://api.github.com/users/renecasco/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/renecasco/received_events",
+    "type": "User",
+    "site_admin": false
+  },
+  {
+    "login": "Matt-Weiss",
+    "id": 45211960,
+    "node_id": "MDQ6VXNlcjQ1MjExOTYw",
+    "avatar_url": "https://avatars3.githubusercontent.com/u/45211960?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/Matt-Weiss",
+    "html_url": "https://github.com/Matt-Weiss",
+    "followers_url": "https://api.github.com/users/Matt-Weiss/followers",
+    "following_url": "https://api.github.com/users/Matt-Weiss/following{/other_user}",
+    "gists_url": "https://api.github.com/users/Matt-Weiss/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/Matt-Weiss/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/Matt-Weiss/subscriptions",
+    "organizations_url": "https://api.github.com/users/Matt-Weiss/orgs",
+    "repos_url": "https://api.github.com/users/Matt-Weiss/repos",
+    "events_url": "https://api.github.com/users/Matt-Weiss/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/Matt-Weiss/received_events",
+    "type": "User",
+    "site_admin": false
+  }
+]

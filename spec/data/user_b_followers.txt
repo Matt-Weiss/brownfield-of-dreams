@@ -1,0 +1,67 @@
+HTTP/1.1 200 OK
+Server: GitHub.com
+Date: Wed, 08 May 2019 15:21:58 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 2093
+Status: 200 OK
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4999
+X-RateLimit-Reset: 1557332518
+Cache-Control: private, max-age=60, s-maxage=60
+Vary: Accept, Authorization, Cookie, X-GitHub-OTP
+ETag: "06391efc644448d782777c0365050043"
+X-OAuth-Scopes: public_repo, user:follow
+X-Accepted-OAuth-Scopes: 
+X-GitHub-Media-Type: github.v3; format=json
+Access-Control-Expose-Headers: ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type
+Access-Control-Allow-Origin: *
+Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
+X-Frame-Options: deny
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Referrer-Policy: origin-when-cross-origin, strict-origin-when-cross-origin
+Content-Security-Policy: default-src 'none'
+X-GitHub-Request-Id: F4CE:69DF:1E0A6EB:4217DE4:5CD2F416
+
+[
+  {
+    "login": "brickfungus",
+    "id": 3083282,
+    "node_id": "MDQ6VXNlcjMwODMyODI=",
+    "avatar_url": "https://avatars1.githubusercontent.com/u/3083282?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/brickfungus",
+    "html_url": "https://github.com/brickfungus",
+    "followers_url": "https://api.github.com/users/brickfungus/followers",
+    "following_url": "https://api.github.com/users/brickfungus/following{/other_user}",
+    "gists_url": "https://api.github.com/users/brickfungus/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/brickfungus/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/brickfungus/subscriptions",
+    "organizations_url": "https://api.github.com/users/brickfungus/orgs",
+    "repos_url": "https://api.github.com/users/brickfungus/repos",
+    "events_url": "https://api.github.com/users/brickfungus/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/brickfungus/received_events",
+    "type": "User",
+    "site_admin": false
+  },
+  {
+    "login": "joequincy",
+    "id": 3322920,
+    "node_id": "MDQ6VXNlcjMzMjI5MjA=",
+    "avatar_url": "https://avatars2.githubusercontent.com/u/3322920?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/joequincy",
+    "html_url": "https://github.com/joequincy",
+    "followers_url": "https://api.github.com/users/joequincy/followers",
+    "following_url": "https://api.github.com/users/joequincy/following{/other_user}",
+    "gists_url": "https://api.github.com/users/joequincy/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/joequincy/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/joequincy/subscriptions",
+    "organizations_url": "https://api.github.com/users/joequincy/orgs",
+    "repos_url": "https://api.github.com/users/joequincy/repos",
+    "events_url": "https://api.github.com/users/joequincy/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/joequincy/received_events",
+    "type": "User",
+    "site_admin": false
+  }
+]
