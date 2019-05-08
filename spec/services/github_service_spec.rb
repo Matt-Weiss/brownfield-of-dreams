@@ -17,7 +17,7 @@ describe GithubService do
 
     it "gets repos" do
       service = GithubService.new(@user[:github_token])
-      result = service.get_repos
+      result = service.repos
 
       expect(result).to be_a(Array)
       expect(result[0]).to have_key(:name)

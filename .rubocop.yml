@@ -8,12 +8,11 @@ AllCops:
     - spec/**/*
     - node_modules/**/*
 Naming/MemoizedInstanceVariableName:
-  Enabled: false
+  EnforcedStyleForLeadingUnderscores: optional
 Style/Documentation:
   Enabled: false
 Style/ClassAndModuleChildren:
   Enabled: false
-Metrics/AbcSize:
-  Enabled: false
 Metrics/LineLength:
-  IgnoredPatterns: ["^class .*","^# .*"]
+  # Ignore class definitions and comments
+  IgnoredPatterns: ['^class .*','^\s*\# .*']
