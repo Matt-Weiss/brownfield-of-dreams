@@ -16,6 +16,12 @@ class GithubFacade
     end
   end
 
+  def following
+    api_data(:following).map do |user|
+      GithubUser.new(user)
+    end
+  end
+
   private
 
   def api_data(endpoint)
@@ -24,6 +30,8 @@ class GithubFacade
       @_repo_data ||= service.get_repos
     when :followers
       @_follower_data ||= service.get_followers
+    when :following
+      @_following_data ||= service.get_following
     end
   end
 
