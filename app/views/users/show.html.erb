@@ -14,8 +14,16 @@
     <section class="github">
       <h2>Your Github Repositories</h2>
       <ul>
-        <% repo_facade.repos.each do |repo| %>
+        <% github_facade.repos.each do |repo| %>
         <li><%=link_to repo.name, repo.url %></li>
+        <% end %>
+      </ul>
+    </section>
+    <section class="followers">
+      <h2>Your Followers</h2>
+      <ul>
+        <% github_facade.followers.each do |follower| %>
+        <li><%= link_to follower.handle, follower.profile_url %></li>
         <% end %>
       </ul>
     </section>
