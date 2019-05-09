@@ -14,9 +14,10 @@ describe 'User' do
 
     expect(page).to have_link('Connect to Github')
     expect(page).to_not have_css('.github')
+    expect(user.github_token).to eq(nil)
 
     click_link 'Connect to Github'
 
-    expect(user.token).to_not eq(nil)
+    expect(user.github_token).to_not eq(nil)
   end
 end
