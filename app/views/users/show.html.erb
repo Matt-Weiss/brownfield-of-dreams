@@ -9,7 +9,7 @@
   </ul>
   <% unless current_user.github_token %>
     <section class="oauth-login">
-      <%= link_to "Connect to Github", "/auth/github" %>
+      <%= link_to "Connect to Github", "/auth/github", class: "btn btn-primary mb1 bg-teal" %>
     </section>
   <% end %>
   <section>
