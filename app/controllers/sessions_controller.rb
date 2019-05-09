@@ -9,16 +9,8 @@ class SessionsController < ApplicationController
     if auth_hash
       handle_oauth
     else
-      user = User.find_by(email: params[:session][:email])
-      if user&.authenticate(params[:session][:password])
-        session[:user_id] = user.id
-        redirect_to dashboard_path
-      else
-        flash[:error] = 'Looks like your email or password is invalid'
-        render :new
-      end
+      local_auth
     end
-
   end
 
   def destroy
@@ -30,6 +22,17 @@ class SessionsController < ApplicationController
 
   def auth_hash
     request.env['omniauth.auth']
+  end
+
+  def local_auth
+    user = User.find_by(email: params[:session][:email])
+    if user&.authenticate(params[:session][:password])
+      session[:user_id] = user.id
+      redirect_to dashboard_path
+    else
+      flash[:error] = 'Looks like your email or password is invalid'
+      render :new
+    end
   end
 
   def handle_oauth
