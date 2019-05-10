@@ -30,7 +30,7 @@
         <% github_facade.followers.each do |follower| %>
         <li>
           <%= link_to follower.handle, follower.profile_url %>
-          <% if follower.is_user? %>
+          <% if follower.is_local_user? %>
             <%= link_to "Add as Friend", add_friend_path(follower.github_id) %>
           <% end %>
         </li>

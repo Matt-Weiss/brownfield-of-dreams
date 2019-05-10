@@ -10,4 +10,8 @@ class GithubUser
     @profile_url = user_hash[:html_url]
     @github_id = user_hash[:id]
   end
+
+  def is_local_user?
+    true # haven't yet decided how to do this DB call
+  end
 end
