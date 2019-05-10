@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'As a logged in user' do
  context 'When I visit /dashboard' do
-    context 'Then I should see a section for "Followers"' do
+    context 'Then I should be able to add friends' do
       before :each do
         response = File.new('./spec/data/user_a_followers.txt')
         stub_request(:get, 'https://api.github.com/user/followers').to_return(response)
@@ -20,7 +20,7 @@ describe 'As a logged in user' do
         visit dashboard_path
 
         within ".followers" do
-          expect(page).to have_css("a[href='/add_friend/45211960']")
+          expect(page).to have_css("a[href='https://github.com/Matt-Weiss'] ~ form[action='/users/friendships']")
         end
       end
 
