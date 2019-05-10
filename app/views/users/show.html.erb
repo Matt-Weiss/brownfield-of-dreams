@@ -28,7 +28,12 @@
       <h2>Your Followers</h2>
       <ul>
         <% github_facade.followers.each do |follower| %>
-        <li><%= link_to follower.handle, follower.profile_url %></li>
+        <li>
+          <%= link_to follower.handle, follower.profile_url %>
+          <% if follower.is_user? %>
+            <%= link_to "Add as Friend", add_friend_path(follower.github_id) %>
+          <% end %>
+        </li>
         <% end %>
       </ul>
     </section>
