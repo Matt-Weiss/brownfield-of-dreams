@@ -39,6 +39,9 @@ Rails.application.routes.draw do
   get '/video', to: 'video#show'
 
   resources :users, only: %i[new create update edit]
+  namespace :users do
+    resources :friendships, only: %i[create]
+  end
 
   resources :tutorials, only: %i[show index] do
     resources :videos, only: %i[show index]
