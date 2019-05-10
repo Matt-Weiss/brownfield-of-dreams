@@ -31,7 +31,11 @@
         <li>
           <%= link_to follower.handle, follower.profile_url %>
           <% if follower.is_local_user? %>
-            <%= link_to "Add as Friend", add_friend_path(follower.github_id) %>
+            <%= button_to "Add as Friend",
+                          users_friendships_path,
+                          method: :post,
+                          params: {friend_id: follower.github_id},
+                          class: "btn btn-primary mb1 bg-teal" %>
           <% end %>
         </li>
         <% end %>
