@@ -1,0 +1,15 @@
+HTTP/1.1 200 OK
+Date: Wed, 08 May 2019 15:21:32 GMT
+Content-Type: application/json; charset=utf-8
+Status: 200 OK
+
+{
+  "data": {
+    "id": 1,
+    "type": "friendship",
+    "attributes": {
+      "initiator": 45211960,
+      "recipiator": 3322920
+    }
+  }
+}
