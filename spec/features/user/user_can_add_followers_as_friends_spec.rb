@@ -64,7 +64,7 @@ describe 'As a logged in user' do
         end
 
         expect(current_path).to eq(dashboard_path)
-        within ".errors" do
+        within ".flash-message" do
           expect(page).to have_content("Unable to befriend that user.")
         end
       end
