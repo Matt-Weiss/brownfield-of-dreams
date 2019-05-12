@@ -53,7 +53,16 @@
       <h2>You're Following</h2>
       <ul>
         <% github_facade.following.each do |user| %>
-        <li><%= link_to user.handle, user.profile_url %></li>
+        <li>
+          <%= link_to user.handle, user.profile_url %>
+          <% if user.local_user && !friends_facade.friends.include?(user.local_user) %>
+            <%= button_to "Add as Friend",
+                          users_friendships_path,
+                          method: :post,
+                          params: {friend_id: user.github_id},
+                          class: "btn btn-primary mb1 bg-teal" %>
+          <% end %>
+        </li>
         <% end %>
       </ul>
     </section>
