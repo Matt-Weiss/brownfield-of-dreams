@@ -33,7 +33,3 @@ module PersonalProject
     config.generators.system_tests = nil
   end
 end
-
-Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :github, ENV['GITHUB_OAUTH_ID'], ENV['GITHUB_OAUTH_SECRET']
-end
