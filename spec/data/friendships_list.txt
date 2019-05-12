@@ -9,7 +9,7 @@ Status: 200 OK
     "type": "friendship",
     "attributes": {
       "initiator": 45211960,
-      "recipiator": 3322920
+      "recipient": 3322920
     }
   }]
 }

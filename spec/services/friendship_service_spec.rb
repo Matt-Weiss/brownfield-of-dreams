@@ -25,7 +25,7 @@ describe FriendshipService do
       result = service.add_friend(@user2)
 
       expect(result).to be_a(Hash)
-      expect(result[:attributes]).to have_key(:recipiator)
+      expect(result[:attributes]).to have_key(:recipient)
     end
 
     it "gets friendships" do
