@@ -1,19 +1,19 @@
 # frozen_string_literal: true
 
 class FriendshipService
-  def initialize(user)
-    @id = user.github_id
+  def initialize(id)
+    @id = id
   end
 
   def friends
-    response = conn.get('/api/v1/friendships')
+    response = conn.get("/api/v1/friendships/#{@id}")
     JSON.parse(response.body, symbolize_names: true)[:data]
   end
 
-  def add_friend(recipiator)
+  def add_friend(recipient_id)
     response = conn.post('/api/v1/friendships', {
       initiator: @id,
-      recipiator: recipiator[:github_id]
+      recipient: recipient_id
     })
     JSON.parse(response.body, symbolize_names: true)[:data]
   end
