@@ -7,7 +7,7 @@ describe FriendshipService do
     stub_request(:post, 'https://young-mountain-25786.herokuapp.com/api/v1/friendships').to_return(create_friendship)
 
     get_friendship = File.new('./spec/data/friendships_list.txt')
-    stub_request(:get, 'https://young-mountain-25786.herokuapp.com/api/v1/friendships').to_return(get_friendship)
+    stub_request(:get, 'https://young-mountain-25786.herokuapp.com/api/v1/friendships/45211960').to_return(get_friendship)
 
     @user1 = create(:user,
             github_token: ENV["GITHUB_API_TOKEN_B"],
@@ -21,7 +21,7 @@ describe FriendshipService do
     end
 
     it "adds friends" do
-      service = FriendshipService.new(@user1)
+      service = FriendshipService.new(@user1[:github_id])
       result = service.add_friend(@user2)
 
       expect(result).to be_a(Hash)
@@ -29,7 +29,7 @@ describe FriendshipService do
     end
 
     it "gets friendships" do
-      service = FriendshipService.new(@user1)
+      service = FriendshipService.new(@user1[:github_id])
       result = service.friends
 
       expect(result).to be_a(Array)
