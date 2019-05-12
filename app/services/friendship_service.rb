@@ -7,7 +7,7 @@ class FriendshipService
 
   def friends
     response = conn.get("/api/v1/friendships/#{@id}")
-    JSON.parse(response.body, symbolize_names: true)[:data]
+    json(response)
   end
 
   def add_friend(recipient_id)
@@ -15,10 +15,14 @@ class FriendshipService
       initiator: @id,
       recipient: recipient_id
     })
-    JSON.parse(response.body, symbolize_names: true)[:data]
+    return response.status, json(response)
   end
 
   private
+
+  def json(response)
+    JSON.parse(response.body, symbolize_names: true)[:data]
+  end
 
   def conn
     Faraday.new('https://young-mountain-25786.herokuapp.com') do |f|
