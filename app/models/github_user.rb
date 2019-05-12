@@ -11,7 +11,7 @@ class GithubUser
     @github_id = user_hash[:id]
   end
 
-  def is_local_user?
-    true # haven't yet decided how to do this DB call
+  def local_user
+    @_local_user ||= User.find_by(github_id: @github_id)
   end
 end
