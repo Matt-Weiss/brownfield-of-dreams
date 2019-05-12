@@ -24,13 +24,21 @@
         <% end %>
       </ul>
     </section>
+    <section class="friends">
+      <h2>Your Friends</h2>
+      <ul>
+        <% friends_facade.friends.each do |friend| %>
+          <li><%= friend.first_name %> <%= friend.last_name %></li>
+        <% end %>
+      </ul>
+    </section>
     <section class="followers">
       <h2>Your Followers</h2>
       <ul>
         <% github_facade.followers.each do |follower| %>
         <li>
           <%= link_to follower.handle, follower.profile_url %>
-          <% if follower.is_local_user? %>
+          <% if follower.local_user && !friends_facade.friends.include?(follower.local_user) %>
             <%= button_to "Add as Friend",
                           users_friendships_path,
                           method: :post,
