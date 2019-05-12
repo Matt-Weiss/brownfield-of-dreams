@@ -54,8 +54,14 @@ describe 'As a logged in user' do
         end
       end
 
-      xit 'I cannot make a friend request with an invalid id' do
-        visit add_friend_path('999999999')
+      it 'I cannot make a friend request to a github user without a local account' do
+        create_friendship = File.new('./spec/data/friendship_request_failed.txt')
+        stub_request(:post, 'https://young-mountain-25786.herokuapp.com/api/v1/friendships').to_return(create_friendship)
+        visit dashboard_path
+
+        within ".followers" do
+          click_button "Add as Friend"
+        end
 
         expect(current_path).to eq(dashboard_path)
         within ".errors" do
