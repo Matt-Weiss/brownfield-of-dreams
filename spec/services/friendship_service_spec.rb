@@ -4,10 +4,10 @@ describe FriendshipService do
   context "instance methods" do
     before :each do
     create_friendship = File.new('./spec/data/friendship_request_successful.txt')
-    stub_request(:post, 'https://exampleapp.herokuapp.com/api/v1/friendships').to_return(create_friendship)
+    stub_request(:post, 'https://young-mountain-25786.herokuapp.com/api/v1/friendships').to_return(create_friendship)
 
     get_friendship = File.new('./spec/data/friendships_list.txt')
-    stub_request(:get, 'https://exampleapp.herokuapp.com/api/v1/friendships').to_return(get_friendship)
+    stub_request(:get, 'https://young-mountain-25786.herokuapp.com/api/v1/friendships').to_return(get_friendship)
 
     @user1 = create(:user,
             github_token: ENV["GITHUB_API_TOKEN_B"],

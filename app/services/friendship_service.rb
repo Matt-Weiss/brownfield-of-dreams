@@ -21,7 +21,7 @@ class FriendshipService
   private
 
   def conn
-    Faraday.new('https://exampleapp.herokuapp.com') do |f|
+    Faraday.new('https://young-mountain-25786.herokuapp.com') do |f|
       f.headers['Authorization'] = ENV['FRIENDSHIP_API_KEY']
       f.request :url_encoded
       f.adapter Faraday.default_adapter
