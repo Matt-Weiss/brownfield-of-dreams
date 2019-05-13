@@ -13,17 +13,32 @@ class GithubFacade
 
   def followers
     api_data(:followers).map do |follower|
-      GithubUser.new(follower)
+      local_user = local_users(:followers)
+                   .detect{|u| u.github_id == follower[:id]}
+      GithubUser.new(follower, local_user)
     end
   end
 
   def following
     api_data(:following).map do |user|
-      GithubUser.new(user)
+      local_user = local_users(:following)
+                   .detect{|u| u.github_id == user[:id]}
+      GithubUser.new(user, local_user)
     end
   end
 
   private
+
+  def local_users(endpoint)
+    case endpoint
+    when :followers
+      @_follower_users ||= User.where(github_id: api_data(endpoint)
+                                                 .map{|user| user[:id]})
+    when :following
+      @_following_users ||= User.where(github_id: api_data(endpoint)
+                                                  .map{|user| user[:id]})
+    end
+  end
 
   def api_data(endpoint)
     case endpoint

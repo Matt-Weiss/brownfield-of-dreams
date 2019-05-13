@@ -7,7 +7,7 @@ describe GithubUser do
           html_url: "https://test_link.com"
           }
 
-    test_user = GithubUser.new(attributes)
+    test_user = GithubUser.new(attributes, nil)
 
     expect(test_user.handle).to eq('Test User')
     expect(test_user.profile_url).to eq('https://test_link.com')
