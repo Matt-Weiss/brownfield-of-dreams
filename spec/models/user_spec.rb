@@ -24,4 +24,20 @@ RSpec.describe User, type: :model do
       expect(admin.admin?).to be_truthy
     end
   end
+
+  describe 'instance methods' do
+    it 'bookmarked_videos' do
+      user = User.create(email: 'user@email.com', password: 'password', first_name: 'Jim', role: 0)
+      tutorial_1 = Tutorial.create(title: 'How to Tie Your Shoes')
+      tutorial_2 = Tutorial.create(title: 'How to Trip on Your Shoelaces')
+      video_1 = Video.create(title: 'The Bunny Ears Technique 1', tutorial: tutorial_1, position: 1)
+      video_2 = Video.create(title: 'The Bunny Ears Technique 2', tutorial: tutorial_1, position: 2)
+      video_3 = Video.create(title: 'Trip on them', tutorial: tutorial_2, position: 1)
+      user_video_1 = UserVideo.create(user_id: user.id, video_id: video_1.id)
+      user_video_1 = UserVideo.create(user_id: user.id, video_id: video_3.id)
+      user_video_1 = UserVideo.create(user_id: user.id, video_id: video_2.id)
+
+      expect(user.bookmarked_videos).to eq([video_1, video_2, video_3])
+    end
+  end
 end
