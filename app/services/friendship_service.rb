@@ -11,11 +11,10 @@ class FriendshipService
   end
 
   def add_friend(recipient_id)
-    response = conn.post('/api/v1/friendships', {
-      initiator: @id,
-      recipient: recipient_id
-    })
-    return response.status, json(response)
+    response = conn.post('/api/v1/friendships',
+                         initiator: @id,
+                         recipient: recipient_id)
+    [response.status, json(response)]
   end
 
   private
