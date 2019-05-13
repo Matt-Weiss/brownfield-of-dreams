@@ -12,8 +12,13 @@
       <%= link_to "Connect to Github", "/auth/github", class: "btn btn-primary mb1 bg-teal" %>
     </section>
   <% end %>
-  <section>
+  <section class="bookmarks">
     <h1>Bookmarked Segments</h1>
+    <ul>
+    <% current_user.bookmarked_videos.each do |video| %>
+      <li><%= video.title %></li>
+    <% end %>
+    </ul>
   </section>
   <% if current_user.github_token %>
     <section class="github">
