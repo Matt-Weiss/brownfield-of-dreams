@@ -38,7 +38,8 @@
         <% github_facade.followers.each do |follower| %>
         <li>
           <%= link_to follower.handle, follower.profile_url %>
-          <% if follower.local_user && !friends_facade.friends.include?(follower.local_user) %>
+          <% if follower.local_user &&
+                !friends_facade.friends.include?(follower.local_user) %>
             <%= button_to "Add as Friend",
                           users_friendships_path,
                           method: :post,
@@ -55,7 +56,8 @@
         <% github_facade.following.each do |user| %>
         <li>
           <%= link_to user.handle, user.profile_url %>
-          <% if user.local_user && !friends_facade.friends.include?(user.local_user) %>
+          <% if user.local_user &&
+                !friends_facade.friends.include?(user.local_user) %>
             <%= button_to "Add as Friend",
                           users_friendships_path,
                           method: :post,
