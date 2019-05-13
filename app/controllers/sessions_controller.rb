@@ -2,7 +2,7 @@
 
 class SessionsController < ApplicationController
   def new
-    @user ||= User.new
+    @_new ||= User.new
   end
 
   def create
@@ -36,7 +36,8 @@ class SessionsController < ApplicationController
   end
 
   def handle_oauth
-    current_user.update_attribute(:github_token, auth_hash[:credentials][:token])
+    current_user.update_attribute(:github_token,
+                                  auth_hash[:credentials][:token])
     redirect_to dashboard_path
   end
 end
