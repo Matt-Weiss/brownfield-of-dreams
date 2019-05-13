@@ -4,16 +4,19 @@ describe 'As a logged in user' do
  context 'When I visit /dashboard' do
     context 'Then I should see a section for "Followers"' do
       before :each do
-        response = File.new('./spec/data/user_a_followers.txt')
-        stub_request(:get, 'https://api.github.com/user/followers').to_return(response)
+        followers = File.new('./spec/data/user_a_followers.txt')
+        stub_request(:get, 'https://api.github.com/user/followers').to_return(followers)
 
-        @user = User.create!(email: "User@example.com",
-                        first_name: "Jon",
-                         last_name: "Peterson",
-                          password: "password",
-                              role: 0,
-                      github_token: ENV["GITHUB_API_TOKEN_A"]
-                            )
+        following = File.new('./spec/data/user_a_following.txt')
+        stub_request(:get, 'https://api.github.com/user/following').to_return(following)
+
+        get_friendship = File.new('./spec/data/empty_friendships_list.txt')
+        stub_request(:get, 'https://young-mountain-25786.herokuapp.com/api/v1/friendships/45211960').to_return(get_friendship)
+
+        @user = create(:user,
+                github_token: ENV["GITHUB_API_TOKEN_A"],
+                   github_id: 3322920
+                      )
         allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
       end
       it 'I see a list of the user\'s followers' do
