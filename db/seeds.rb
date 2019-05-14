@@ -115,6 +115,58 @@ m3_tutorial.videos.create!(
   'thumbnail' => 'https://i.ytimg.com/vi/FcgkfZEv_LI/hqdefault.jpg',
   'position' => 6
 )
+mod_4_tutorial_data = {
+  'title' => 'Panels, Q&A with Turing staff and students',
+  'description' => 'Video content for GearUp and PR.',
+  'thumbnail' => 'https://i.ytimg.com/vi/R5FPYQgB6Zc/hqdefault.jpg',
+  'playlist_id' => 'PL1Y67f0xPzdOty2NDYKTRtxeoxvW1mAXu',
+  'classroom' => true,
+  'tag_list' => %w[Internet BDD Ruby]
+}
+m4_tutorial = Tutorial.create! mod_4_tutorial_data
+
+m4_tutorial.videos.create!(
+  'title' => 'Kids That Code with Air Force Veteran George Hudson',
+  'description' => Faker::Hipster.paragraph(2, true),
+  'video_id' => 'gqnOAgAh1gg',
+  'thumbnail' => 'https://i.ytimg.com/vi/gqnOAgAh1gg/hqdefault.jpg',
+  'position' => 1
+)
+m4_tutorial.videos.create!(
+  'title' => 'How to Be Successful at a Coding Bootcamp',
+  'description' => Faker::Hipster.paragraph(2, true),
+  'video_id' => 'kXZlr-ytcTk',
+  'thumbnail' => 'https://i.ytimg.com/vi/kXZlr-ytcTk/hqdefault.jpg',
+  'position' => 2
+)
+m4_tutorial.videos.create!(
+  'title' => 'Ask a Bootcamp Leader: Jorge Téllez',
+  'description' => Faker::Hipster.paragraph(2, true),
+  'video_id' => 'j5wNkAOQgaM',
+  'thumbnail' => 'https://i.ytimg.com/vi/j5wNkAOQgaM/hqdefault.jpg',
+  'position' => 3
+)
+m4_tutorial.videos.create!(
+  'title' => 'Turing School of Software & Design',
+  'description' => Faker::Hipster.paragraph(2, true),
+  'video_id' => '6b0wCed8BPU',
+  'thumbnail' => 'https://i.ytimg.com/vi/6b0wCed8BPU/hqdefault.jpg',
+  'position' => 4
+)
+m4_tutorial.videos.create!(
+  'title' => 'Women @ Turing',
+  'description' => Faker::Hipster.paragraph(2, true),
+  'video_id' => 'IUeIXoImPJI',
+  'thumbnail' => 'https://i.ytimg.com/vi/IUeIXoImPJI/hqdefault.jpg',
+  'position' => 5
+)
+m4_tutorial.videos.create!(
+  'title' => 'Racial Diversity in Coding Bootcamps Webinar',
+  'description' => Faker::Hipster.paragraph(2, true),
+  'video_id' => 'K7DsSbaT_aM',
+  'thumbnail' => 'https://i.ytimg.com/vi/K7DsSbaT_aM/hqdefault.jpg',
+  'position' => 6
+)
 
 User.create!(email: 'admin@example.com', first_name: 'Bossy', last_name: 'McBosserton', password: 'password', role: :admin)
 User.create!(email: ENV['JON_EMAIL'], first_name: 'Jon', last_name: 'Peterson', password: ENV['JON_DEMO_PASSWORD'], role: :default, github_token: ENV["GITHUB_API_TOKEN_A"], github_id: 3322920)
