@@ -38,6 +38,7 @@ RSpec.describe User, type: :model do
       user_video_1 = UserVideo.create(user_id: user.id, video_id: video_2.id)
 
       expect(user.bookmarked_videos).to eq([video_1, video_2, video_3])
+      expect(user.bookmarked_videos[0].tutorial_name).to eq(tutorial_1.title)
     end
   end
 end
