@@ -14,7 +14,7 @@ class GithubFacade
   def followers
     api_data(:followers).map do |follower|
       local_user = local_users(:followers)
-                   .detect{|u| u.github_id == follower[:id]}
+                   .detect { |u| u.github_id == follower[:id] }
       GithubUser.new(follower, local_user)
     end
   end
@@ -22,7 +22,7 @@ class GithubFacade
   def following
     api_data(:following).map do |user|
       local_user = local_users(:following)
-                   .detect{|u| u.github_id == user[:id]}
+                   .detect { |u| u.github_id == user[:id] }
       GithubUser.new(user, local_user)
     end
   end
@@ -33,10 +33,10 @@ class GithubFacade
     case endpoint
     when :followers
       @_follower_users ||= User.where(github_id: api_data(endpoint)
-                                                 .map{|user| user[:id]})
+                                                 .map { |user| user[:id] })
     when :following
       @_following_users ||= User.where(github_id: api_data(endpoint)
-                                                  .map{|user| user[:id]})
+                                                  .map { |user| user[:id] })
     end
   end
 
