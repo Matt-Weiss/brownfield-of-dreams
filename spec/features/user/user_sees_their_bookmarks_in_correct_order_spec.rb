@@ -36,7 +36,10 @@ describe 'As a registered user' do
     visit dashboard_path(user)
 
     within ".bookmarks" do
-      expect(page).to have_content("#{video_1.title} #{video_3.title} #{video_4.title} #{video_5.title}")
+      expect(page).to have_selector('h4', count: 2)
+      expect(page).to have_selector('li', count: 4)
+      expect(page.body.index(tutorial_1.title)).to be < page.body.index(video_1.title)
+      expect(page.body.index(video_3.title)).to be < page.body.index(tutorial_2.title)
     end
   end
 end
