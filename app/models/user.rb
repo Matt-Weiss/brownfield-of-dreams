@@ -11,6 +11,8 @@ class User < ApplicationRecord
   has_secure_password
 
   def bookmarked_videos
-    videos.order(:tutorial_id, :position)
+    videos.select('videos.*, tutorials.title as tutorial_name')
+          .joins(:tutorial)
+          .order(:tutorial_id, :position)
   end
 end
