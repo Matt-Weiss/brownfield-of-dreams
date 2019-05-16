@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   def create
     user = User.create(user_params)
     if user.save
+      RegistrationMailer.confirm(user).deliver_now
       session[:user_id] = user.id
       flash[:message] = "Logged in as #{user.first_name} #{user.last_name}"
       redirect_to dashboard_path
