@@ -57,21 +57,26 @@ describe 'visiter can create an account', :js do
 
     click_on'Create Account'
 
+    user = User.last
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
     expect(ActionMailer::Base.deliveries.count).to eq(1)
     email = ActionMailer::Base.deliveries.last
 
     expect(email.subject).to eq("Activate your account")
-    expect(email.body).to have_content("Visit here to activate your account.")
+    expect(email.body.parts[1].body).to have_content("Visit here to activate your account.")
 
     # simulate clicking on activation link, since we can't load the email in a
     # full Capybara session
-    body = Capybara.string(email.body)
-    visit body.find('a#activate').href
+    email_body = Capybara.string(email.body.parts[1].body.to_s)
+    expect(email_body.find('a#activate')[:href]).to have_content(user_activation_path(user))
+    visit user_activation_path(user)
 
     expect(page).to have_content("Thank you! Your account is now activated.")
 
     visit dashboard_path
 
     expect(page).to have_content("Status: Active")
+    expect(page).to_not have_content("This account has not yet been activated. Please check your email.")
   end
 end
