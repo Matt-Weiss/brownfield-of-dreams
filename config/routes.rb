@@ -43,6 +43,8 @@ Rails.application.routes.draw do
     resources :friendships, only: %i[create]
   end
 
+  get '/users/:id/activate', to: 'users#update', as: 'user_activation'
+
   resources :tutorials, only: %i[show index] do
     resources :videos, only: %i[show index]
   end
