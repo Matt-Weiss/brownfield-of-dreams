@@ -2,7 +2,11 @@
 
 require 'rails_helper'
 
-describe 'vister can create an account', :js do
+describe 'visiter can create an account', :js do
+  before :each do
+    ActionMailer::Base.deliveries = []
+  end
+
   it ' visits the home page' do
     email = 'jimbob@aol.com'
     first_name = 'Jim'
