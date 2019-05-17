@@ -29,7 +29,11 @@ class UsersController < ApplicationController
   def update
     user = User.find(params[:id])
     if user == current_user
+      session[:return_path] = nil
       current_user.update_attribute(:active, true)
+    else
+      session[:return_path] = request.fullpath.to_s
+      redirect_to login_path
     end
   end
 
