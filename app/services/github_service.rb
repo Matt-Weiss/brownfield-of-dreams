@@ -9,12 +9,20 @@ class GithubService
     get_json('user/repos')
   end
 
+  def name
+    get_json('user')[:login]
+  end
+
   def followers
     get_json('user/followers')
   end
 
   def following
     get_json('user/following')
+  end
+
+  def fetch_invited_user_email(login)
+    get_json("users/#{login}")
   end
 
   private
