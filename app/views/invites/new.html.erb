@@ -1,5 +1,6 @@
 <%= form_tag '/invite', method: 'create' do %>
 <h2>Enter the GitHub username you'd like to invite:</h2>
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
   <%= label_tag 'Github Handle' %>
   <%= text_field_tag :login %>
 
