@@ -44,6 +44,8 @@ Rails.application.routes.draw do
   end
 
   get '/users/:id/activate', to: 'users#update', as: 'user_activation'
+  get '/invite',  to: 'invites#new', as: 'new_invite'
+  post '/invite',  to: 'invites#create'
 
   resources :tutorials, only: %i[show index] do
     resources :videos, only: %i[show index]

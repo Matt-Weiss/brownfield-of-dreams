@@ -15,9 +15,7 @@ class UsersController < ApplicationController
   def create
     user = User.new(user_params)
     if user.save
-      RegistrationMailer.confirm(user).deliver_now
-      session[:user_id] = user.id
-      flash[:message] = "Logged in as #{user.first_name} #{user.last_name}"
+      perform_login(user)
       redirect_to dashboard_path
     else
       flash.now[:message] = 'Username already exists'
@@ -41,5 +39,11 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:email, :first_name, :last_name, :password)
+  end
+
+  def perform_login(user)
+    RegistrationMailer.confirm(user).deliver_now
+    session[:user_id] = user.id
+    flash[:message] = "Logged in as #{user.first_name} #{user.last_name}"
   end
 end
