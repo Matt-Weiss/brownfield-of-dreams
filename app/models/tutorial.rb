@@ -6,11 +6,10 @@ class Tutorial < ApplicationRecord
   accepts_nested_attributes_for :videos
 
   def self.limit_to_users(user)
-    if user == nil
+    if user.nil?
       where(classroom: false)
     else
       self
     end
   end
-
 end
