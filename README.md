@@ -79,6 +79,6 @@ To use as a regular use, please register and connect to your GitHub account. Thi
 
 ## Contributors
 
-John Pterson @joequincy
+Jon Peterson @joequincy
 
 Matt Weiss @Matt-Weiss
