@@ -1,44 +1,43 @@
-# Brownfield Of Dreams
+# Brownfield of Dreams
 
-This is the base repo for a brownfield project used at Turing for Backend Mod 3.
+## About
 
-Project Spec and Evaluation Rubric: https://github.com/turingschool-examples/brownfield-of-dreams
+This is the week 2-3 paired project at Turing School's Backend Engineering program. The aim of the project is to use the following skills:
 
-### Project Board
+- Build on an existing code base and work with technical debt
+- OAuth
+- Consume an API
+- BDD using RSpec and Capybara
+- Deploy project to production
+- Email functionality
 
-Students will continue to build on the existing code base using the cards within the following Github Project: https://github.com/turingschool-examples/brownfield-of-dreams/projects/1
+The application allows users to view tutorials related to the program. Much of the code was inherited to give us experience dealing with existing code bases, and to train us to recognize why particular decisions may have been made. We were encouraged to recognize and avoid future technical debt. The GitHub API is consumed to allow users to view their repos, followers, and following as well as the ability to add friends.
 
-**Learning Goals and Labels**
+In our case, friends are added by using a separate standalone app providing an API. The code and README for this secondary project can be found <a href="https://github.com/Matt-Weiss/greenfield-of-friends">HERE</a>.
 
-The cards are labeled in a way that correspond to learning goals or to specific areas you might personally want to focus on.
+## Installation & Setup
 
-Cards should be completed from top to bottom in the To Do column. Cards labeled `good first issue` are good as filler work and will allow you to practice common Rails skills.
-
-### About the Project
-
-This is a Ruby on Rails application used to organize YouTube content used for online learning. Each tutorial is a playlist of video segments. Within the application an admin is able to create tags for each tutorial in the database. A visitor or registered user can then filter tutorials based on these tags.
-
-A visitor is able to see all of the content on the application but in order to bookmark a segment they will need to register. Once registered a user can bookmark any of the segments in a tutorial page.
-
-## Local Setup
-
-First you'll need to setup an API key with YouTube and have it defined within `ENV['YOUTUBE_API_KEY']`. There will be one failing spec if you don't have this set up.
+Follow these steps to get this application running on your local machine:
 
 Clone down the repo
-```
-$ git clone
-```
 
-Install the gem packages
+Run
 ```
 $ bundle install
 ```
+to install required gems
 
-Install node packages for stimulus
+Install node, yarn, and stimulus
+Stimulus is used to add minimal JS functionality to the frontend.
 ```
 $ brew install node
 $ brew install yarn
 $ yarn add stimulus
+```
+
+If there is a yarn error **
+```
+$ rm yarn.lock && yarn
 ```
 
 Set up the database
@@ -48,20 +47,38 @@ $ rake db:migrate
 $ rake db:seed
 ```
 
+Run the server
+```
+$ rails s
+```
+
+On browser, go to `http://localhost:3000/`
+
+## Testing
+
+The project uses <a href="https://github.com/rspec/rspec"> RSpec</a> as the test suite and <a href="https://github.com/colszowka/simplecov"> SimpleCov</a> for reporting test coverage.
+
 Run the test suite:
-```ruby
+```
 $ bundle exec rspec
 ```
 
-## Technologies
-* [Stimulus](https://github.com/stimulusjs/stimulus)
-* [will_paginate](https://github.com/mislav/will_paginate)
-* [acts-as-taggable-on](https://github.com/mbleigh/acts-as-taggable-on)
-* [webpacker](https://github.com/rails/webpacker)
-* [vcr](https://github.com/vcr/vcr)
-* [selenium-webdriver](https://www.seleniumhq.org/docs/03_webdriver.jsp)
-* [chromedriver-helper](http://chromedriver.chromium.org/)
+## Live Web App
 
-### Versions
+The project is deployed <a href='https://serene-gorge-80745.herokuapp.com/'> here</a>
+
+To login as admin, `email: admin@example.com password: password`
+
+To use as a regular use, please register and connect to your GitHub account. This will demonstrate implementation of Oauth.
+
+## System Requirements
+
 * Ruby 2.4.1
 * Rails 5.2.0
+* PostgreSQL 11.2
+
+## Contributors
+
+John Pterson @joequincy
+
+Matt Weiss @Matt-Weiss
