@@ -42,6 +42,8 @@ class SessionsController < ApplicationController
   def handle_oauth
     current_user.update_attribute(:github_token,
                                   auth_hash[:credentials][:token])
+    current_user.update_attribute(:github_id,
+                                  auth_hash[:uid])
     redirect_to dashboard_path
   end
 end
