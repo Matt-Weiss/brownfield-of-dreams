@@ -15,4 +15,9 @@ class User < ApplicationRecord
           .joins(:tutorial)
           .order(:tutorial_id, :position)
   end
+
+  def link_github(auth_hash)
+    update_attribute(:github_token, auth_hash[:credentials][:token])
+    update_attribute(:github_id, auth_hash[:uid])
+  end
 end
