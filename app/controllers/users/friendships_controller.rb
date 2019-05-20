@@ -6,7 +6,7 @@ class Users::FriendshipsController < ApplicationController
       service = FriendshipService.new(current_user.github_id)
       @result = service.add_friend(params[:friend_id])
     end
-    flash[:error] = 'Unable to befriend that user.' unless @result == 200
+    flash[:error] = 'Unable to befriend that user.' unless @result[1] == 200
     redirect_to dashboard_path
   end
 end
